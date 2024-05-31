@@ -1,0 +1,214 @@
+@charset "UTF-8";
+/*Обнуление*/
+@import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*--------------------*/
+body {
+  font-size: 16px;
+  font-family: "Montserrat", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 700;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #DAE6EC;
+}
+
+.progress-container {
+  background-color: #fff;
+  padding: 20px;
+  width: 320px;
+  height: 568px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.progress-container__circle-part {
+  flex: 0 1 50%;
+}
+.progress-container__control-part {
+  flex: 0 1 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+@media (max-width: 768px) and (orientation: landscape) {
+  .progress-container {
+    height: 320px;
+    width: 568px;
+    flex-direction: row;
+  }
+}
+
+.header {
+  padding-top: 3px;
+}
+
+.progress-ring {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.progress-ring__circle {
+  transition: 0.35s stroke-dasharray;
+  transform: rotate(0);
+  transform-origin: center;
+}
+.progress-ring svg {
+  transform: rotate(-90deg);
+}
+@media (max-width: 768px) and (orientation: landscape) {
+  .progress-ring {
+    margin-top: 20px;
+  }
+}
+
+.value-controller input {
+  font-weight: 600;
+  width: 50px;
+  height: 30px;
+  border-radius: 15px;
+  padding-left: 10px;
+  border: 2px solid black;
+}
+
+.controller {
+  width: 190px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-left: 28px;
+}
+.controller__title {
+  padding-left: 20px;
+}
+
+.switch {
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 30px;
+}
+.switch input {
+  opacity: 1;
+  width: 0;
+  height: 0;
+}
+
+.move {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #DAE6EC;
+  border-radius: 15px;
+  border: 1px solid #DAE6EC;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.move::before {
+  position: absolute;
+  content: "";
+  background-color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 15px;
+  top: 1px;
+  bottom: 0;
+  left: 3px;
+  transition: 0.5s;
+}
+
+input:checked + .move {
+  background-color: #005CFF;
+  border: 1px solid transparent;
+}
+
+input:checked + .move::before {
+  transform: translateX(18px);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animate {
+  animation: rotate 2s linear infinite;
+}
